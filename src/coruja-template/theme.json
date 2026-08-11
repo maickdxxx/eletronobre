@@ -1,0 +1,8 @@
+{
+  "tokens": {
+    "color": { "primary": "#B8794B", "secondary": "#171513", "accent": "#D9B28D", "bg": "#F7F2EC", "surface": "#FFFDFC", "fg": "#211D1A", "muted": "#71675F", "border": "#E4D9CF", "soft": "#EFE5DB", "whatsapp": "#25D366" },
+    "radius": { "base": "18px" },
+    "container": { "maxWidth": "1240px" },
+    "font": { "family": "Georgia, 'Times New Roman', serif", "bodyFamily": "Inter, system-ui, sans-serif" }
+  }
+}

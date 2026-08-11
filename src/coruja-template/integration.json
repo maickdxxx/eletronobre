@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 2,
+  "brand": { "namePath": "global.brand.name", "legalNamePath": "global.brand.legalName", "logoPath": "global.brand.logoUrl", "logoIconPath": "global.brand.logoIconUrl", "faviconPath": "global.brand.faviconUrl" },
+  "contact": { "phonePath": "global.contact.phone", "phoneRawPath": "global.contact.phoneRaw", "whatsappRawPath": "global.contact.whatsappRaw", "whatsappDisplayPath": "global.contact.whatsappDisplay", "whatsappMessagePath": "global.contact.whatsappMessage", "emailPath": "global.contact.email", "hoursPath": "global.contact.businessHoursWeek" },
+  "seo": { "global": { "titlePath": "global.seo.title", "descriptionPath": "global.seo.description", "ogImagePath": "global.seo.ogImage" }, "pages": [
+    { "pageId": "home", "titlePath": "pages.home.seo.title", "descriptionPath": "pages.home.seo.description", "ogImagePath": "pages.home.seo.ogImage" },
+    { "pageId": "services", "titlePath": "pages.services.seo.title", "descriptionPath": "pages.services.seo.description", "ogImagePath": "pages.services.seo.ogImage" },
+    { "pageId": "about", "titlePath": "pages.about.seo.title", "descriptionPath": "pages.about.seo.description", "ogImagePath": "pages.about.seo.ogImage" },
+    { "pageId": "contact", "titlePath": "pages.contact.seo.title", "descriptionPath": "pages.contact.seo.description", "ogImagePath": "pages.contact.seo.ogImage" },
+    { "pageId": "blog", "titlePath": "pages.blog.seo.title", "descriptionPath": "pages.blog.seo.description", "ogImagePath": "pages.blog.seo.ogImage" }
+  ]},
+  "theme": { "colors": { "primary": "global.theme.colors.primary", "secondary": "global.theme.colors.secondary", "accent": "global.theme.colors.accent", "background": "global.theme.colors.background", "foreground": "global.theme.colors.foreground", "surface": "global.theme.colors.surface", "muted": "global.theme.colors.muted", "border": "global.theme.colors.border", "soft": "global.theme.colors.soft", "whatsapp": "global.theme.colors.whatsapp" } },
+  "pages": [
+    { "pageId": "home", "label": "Início", "path": "/", "schemaPath": "pages.home", "seoPath": "pages.home.seo" },
+    { "pageId": "services", "label": "Serviços", "path": "/servicos", "schemaPath": "pages.services", "seoPath": "pages.services.seo" },
+    { "pageId": "about", "label": "Sobre", "path": "/sobre", "schemaPath": "pages.about", "seoPath": "pages.about.seo" },
+    { "pageId": "contact", "label": "Contato", "path": "/contato", "schemaPath": "pages.contact", "seoPath": "pages.contact.seo" },
+    { "pageId": "blog", "label": "Conteúdos", "path": "/blog", "schemaPath": "pages.blog", "seoPath": "pages.blog.seo", "showInNav": true }
+  ],
+  "events": [
+    { "id": "header_whatsapp", "type": "whatsapp_click", "label": "header_whatsapp", "targetPath": "global.contact.whatsappRaw", "messagePath": "global.contact.whatsappMessage", "required": true },
+    { "id": "hero_whatsapp", "type": "whatsapp_click", "label": "hero_whatsapp", "targetPath": "global.contact.whatsappRaw", "messagePath": "global.contact.whatsappMessage" },
+    { "id": "service_whatsapp", "type": "whatsapp_click", "label": "service_whatsapp", "targetPath": "global.contact.whatsappRaw", "messagePath": "global.contact.whatsappMessage" },
+    { "id": "contact_phone", "type": "tel_click", "label": "contact_phone", "targetPath": "global.contact.phoneRaw" },
+    { "id": "contact_form_submit", "type": "form_submit", "label": "contact_form_submit" },
+    { "id": "floating_whatsapp", "type": "whatsapp_click", "label": "floating_whatsapp", "targetPath": "global.contact.whatsappRaw", "messagePath": "global.contact.whatsappMessage" }
+  ],
+  "images": [
+    { "id": "homeHero", "label": "Imagem principal", "srcPath": "pages.home.hero.image", "altPath": "pages.home.hero.imageAlt", "required": true },
+    { "id": "logo", "label": "Logo", "srcPath": "global.brand.logoUrl", "altFromPath": "global.brand.name" },
+    { "id": "favicon", "label": "Favicon", "srcPath": "global.brand.faviconUrl", "altFromPath": "global.brand.name" },
+    { "id": "ogImage", "label": "Imagem social", "srcPath": "global.seo.ogImage", "altFromPath": "global.seo.title" }
+  ],
+  "forms": [ { "id": "contact_whatsapp", "label": "Formulário de orçamento", "schemaPath": "pages.contact.form", "eventLabel": "contact_form_submit" } ],
+  "collections": {
+    "stats": { "path": "collections.stats", "requiredFields": ["id", "value", "label"] },
+    "services": { "path": "collections.services", "requiredFields": ["id", "title", "description", "ctaLabel", "whatsappMessage"] },
+    "principles": { "path": "collections.principles", "requiredFields": ["id", "number", "title", "description"] },
+    "projects": { "path": "collections.projects", "requiredFields": ["id", "image", "title", "description"] },
+    "testimonials": { "path": "collections.testimonials", "requiredFields": ["id", "quote", "name"] },
+    "process": { "path": "collections.process", "requiredFields": ["id", "step", "title", "description"] },
+    "values": { "path": "collections.values", "requiredFields": ["id", "title", "description"] },
+    "serviceAreas": { "path": "collections.serviceAreas", "requiredFields": ["id", "text"] },
+    "faq": { "path": "collections.faq", "requiredFields": ["id", "question", "answer"] }
+  },
+  "blog": { "indexPath": "/blog", "postPath": "/blog/:slug", "source": "coruja", "allowLocalFallbackInDev": true, "allowLocalFallbackInProduction": false }
+}

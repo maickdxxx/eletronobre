@@ -1,0 +1,204 @@
+{
+  "global": {
+    "brand": {
+      "name": "EletroNobre",
+      "legalName": "EletroNobre Serviços Elétricos",
+      "description": "Serviços elétricos com segurança, organização e acabamento de alto padrão.",
+      "logoUrl": "",
+      "logoIconUrl": "",
+      "faviconUrl": "/favicon.svg"
+    },
+    "contact": {
+      "phone": "(11) 99999-9999",
+      "phoneRaw": "5511999999999",
+      "whatsappRaw": "5511999999999",
+      "whatsappDisplay": "(11) 99999-9999",
+      "whatsappMessage": "Olá! Gostaria de solicitar um orçamento de serviço elétrico.",
+      "email": "contato@eletronobre.com.br",
+      "address": "São Paulo - SP",
+      "serviceArea": "São Paulo e região",
+      "businessHoursWeek": "Segunda a sexta, 8h às 18h",
+      "businessHoursSaturday": "Sábado, 8h às 13h",
+      "cnpj": ""
+    },
+    "seo": {
+      "title": "EletroNobre | Serviços elétricos com alto padrão",
+      "description": "Instalações, manutenção e projetos elétricos com segurança, organização e acabamento profissional.",
+      "ogImage": "/hero-nobre.svg",
+      "canonicalBase": ""
+    },
+    "nav": {
+      "servicesLabel": "Serviços",
+      "aboutLabel": "Sobre",
+      "projectsLabel": "Projetos",
+      "blogLabel": "Conteúdos",
+      "contactLabel": "Contato"
+    },
+    "cta": {
+      "headerLabel": "Solicitar orçamento",
+      "floatingTitle": "Precisa de um eletricista?",
+      "floatingText": "Fale direto com nossa equipe.",
+      "floatingButtonLabel": "Abrir WhatsApp"
+    },
+    "footer": {
+      "tagline": "Elétrica bem executada valoriza, protege e organiza seu imóvel.",
+      "copyright": "© 2026 EletroNobre. Todos os direitos reservados."
+    },
+    "social": { "instagram": "", "facebook": "", "linkedin": "" },
+    "theme": {
+      "colors": {
+        "primary": "#B8794B",
+        "secondary": "#171513",
+        "accent": "#D9B28D",
+        "background": "#F7F2EC",
+        "foreground": "#211D1A",
+        "surface": "#FFFDFC",
+        "muted": "#71675F",
+        "border": "#E4D9CF",
+        "soft": "#EFE5DB",
+        "whatsapp": "#25D366"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "hero": {
+        "eyebrow": "ELÉTRICA COM PADRÃO DE EXCELÊNCIA",
+        "title": "Segurança elétrica com",
+        "titleAccent": "acabamento impecável.",
+        "description": "Projetos, instalações e manutenção para residências e empresas que valorizam organização, segurança e um serviço bem executado.",
+        "primaryCtaLabel": "Pedir orçamento",
+        "secondaryCtaLabel": "Conhecer serviços",
+        "image": "/hero-nobre.svg",
+        "imageAlt": "Projeto elétrico residencial de alto padrão",
+        "note": "Atendimento profissional • Orçamento transparente • Garantia de serviço"
+      },
+      "signature": {
+        "eyebrow": "NOSSO PADRÃO",
+        "title": "Mais do que fazer funcionar: entregar um serviço que dá confiança.",
+        "description": "Cuidamos de cada detalhe, do dimensionamento ao acabamento final, com organização e comunicação clara durante todo o serviço."
+      },
+      "services": {
+        "eyebrow": "SOLUÇÕES ELÉTRICAS",
+        "title": "Serviços para cada etapa do seu imóvel",
+        "description": "Atendimento residencial, comercial e empresarial com foco em segurança e durabilidade.",
+        "ctaLabel": "Ver todos os serviços"
+      },
+      "projects": {
+        "eyebrow": "TRABALHOS REALIZADOS",
+        "title": "Execução limpa, organizada e pensada nos detalhes",
+        "description": "Exemplos de soluções que combinam técnica, segurança e acabamento."
+      },
+      "testimonials": {
+        "eyebrow": "QUEM CONTRATA, RECOMENDA",
+        "title": "Confiança construída em cada atendimento",
+        "description": "Avaliações que refletem nosso compromisso com prazo, cuidado e transparência."
+      },
+      "finalCta": {
+        "eyebrow": "SEU PROJETO COMEÇA AQUI",
+        "title": "Vamos planejar a melhor solução elétrica para o seu espaço?",
+        "description": "Explique o que precisa e receba uma orientação inicial pelo WhatsApp.",
+        "ctaLabel": "Falar com especialista",
+        "whatsappMessage": "Olá! Quero conversar sobre um projeto ou serviço elétrico."
+      },
+      "seo": {
+        "title": "EletroNobre | Eletricista e serviços elétricos",
+        "description": "Projetos, instalações e manutenção elétrica com segurança, organização e acabamento profissional.",
+        "ogImage": "/hero-nobre.svg"
+      }
+    },
+    "services": {
+      "hero": { "eyebrow": "SERVIÇOS", "title": "Soluções elétricas completas, do diagnóstico à entrega", "description": "Atendimento técnico para residências, comércios e empresas." },
+      "intro": { "title": "O serviço certo para cada necessidade", "description": "Trabalhamos com manutenção, instalação, modernização e adequação elétrica." },
+      "process": { "eyebrow": "COMO TRABALHAMOS", "title": "Um processo simples, organizado e transparente" },
+      "seo": { "title": "Serviços elétricos | EletroNobre", "description": "Conheça os serviços elétricos da EletroNobre para residências e empresas.", "ogImage": "/hero-nobre.svg" }
+    },
+    "about": {
+      "hero": { "eyebrow": "SOBRE A ELETRO NOBRE", "title": "Técnica, cuidado e respeito pelo seu patrimônio", "description": "Uma empresa de elétrica criada para oferecer uma experiência mais profissional do primeiro contato à entrega." },
+      "story": { "title": "Serviço elétrico não precisa ser improvisado", "paragraph1": "A EletroNobre nasceu com a proposta de unir conhecimento técnico, organização e um padrão de atendimento que valoriza o cliente e o imóvel.", "paragraph2": "Cada serviço é planejado para reduzir riscos, evitar retrabalho e entregar uma instalação segura, identificada e com acabamento cuidadoso." },
+      "valuesTitle": "O que orienta nosso trabalho",
+      "areasTitle": "Regiões atendidas",
+      "seo": { "title": "Sobre a EletroNobre", "description": "Conheça a EletroNobre e nosso compromisso com segurança, qualidade e acabamento em serviços elétricos.", "ogImage": "/hero-nobre.svg" }
+    },
+    "contact": {
+      "hero": { "eyebrow": "CONTATO", "title": "Conte o que você precisa. Nós ajudamos a planejar.", "description": "Envie uma mensagem ou fale diretamente pelo WhatsApp para solicitar seu orçamento." },
+      "form": {
+        "enabled": true,
+        "title": "Solicite seu orçamento",
+        "description": "Preencha os dados e a mensagem será preparada para envio no WhatsApp.",
+        "nameLabel": "Nome",
+        "namePlaceholder": "Seu nome",
+        "phoneLabel": "Telefone",
+        "phonePlaceholder": "(11) 99999-9999",
+        "serviceLabel": "Serviço",
+        "servicePlaceholder": "O que você precisa?",
+        "messageLabel": "Detalhes",
+        "messagePlaceholder": "Conte brevemente sobre o serviço, local e prazo desejado.",
+        "submitText": "Enviar pelo WhatsApp",
+        "whatsappMessage": "Olá! Quero solicitar um orçamento pela EletroNobre."
+      },
+      "info": { "title": "Fale com a EletroNobre", "hoursLabel": "Horário", "areaLabel": "Atendimento", "addressLabel": "Localização" },
+      "seo": { "title": "Contato | EletroNobre", "description": "Solicite orçamento e fale com a EletroNobre pelo WhatsApp.", "ogImage": "/hero-nobre.svg" }
+    },
+    "blog": {
+      "eyebrow": "CONTEÚDOS",
+      "title": "Informação para cuidar melhor da instalação elétrica",
+      "description": "Dicas, segurança, economia e orientações para residências e empresas.",
+      "emptyMessage": "Nenhum artigo publicado ainda.",
+      "backLabel": "Voltar aos conteúdos",
+      "readMoreLabel": "Ler artigo",
+      "seo": { "title": "Conteúdos | EletroNobre", "description": "Artigos sobre elétrica, segurança, instalações e manutenção.", "ogImage": "/hero-nobre.svg" }
+    }
+  },
+  "collections": {
+    "stats": [
+      { "id": "s1", "value": "100%", "label": "foco em segurança" },
+      { "id": "s2", "value": "Ágil", "label": "retorno ao orçamento" },
+      { "id": "s3", "value": "Limpo", "label": "serviço organizado" }
+    ],
+    "services": [
+      { "id": "instalacoes", "icon": "◈", "title": "Instalações elétricas", "description": "Novos pontos, circuitos, tomadas, iluminação e adequações com dimensionamento correto.", "highlight": "Residencial e comercial", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Quero orçamento para instalação elétrica." },
+      { "id": "quadros", "icon": "▦", "title": "Quadros e disjuntores", "description": "Montagem, organização, identificação e modernização de quadros de distribuição.", "highlight": "Mais segurança", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Quero orçamento para quadro elétrico/disjuntores." },
+      { "id": "iluminacao", "icon": "✦", "title": "Iluminação e acabamento", "description": "Instalação de luminárias, spots, pendentes, fitas LED e soluções para valorizar os ambientes.", "highlight": "Acabamento premium", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Quero orçamento para iluminação." },
+      { "id": "manutencao", "icon": "⌁", "title": "Manutenção e diagnóstico", "description": "Correção de falhas, aquecimento, quedas de energia, curtos e problemas recorrentes.", "highlight": "Diagnóstico técnico", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Preciso de manutenção elétrica." },
+      { "id": "chuveiros", "icon": "◇", "title": "Chuveiros e equipamentos", "description": "Circuitos dedicados e instalações seguras para chuveiros, fornos, cooktops e equipamentos de maior potência.", "highlight": "Circuito correto", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Quero instalar um equipamento elétrico." },
+      { "id": "protecao", "icon": "⬡", "title": "Proteção elétrica", "description": "DR, DPS, aterramento e melhorias para reduzir riscos de choque, surtos e danos aos equipamentos.", "highlight": "Proteção do imóvel", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Quero melhorar a proteção elétrica do imóvel." }
+    ],
+    "principles": [
+      { "id": "p1", "number": "01", "title": "Diagnóstico antes da execução", "description": "Entender a causa e o cenário evita soluções improvisadas." },
+      { "id": "p2", "number": "02", "title": "Organização durante o serviço", "description": "Planejamento, cuidado com o ambiente e comunicação clara." },
+      { "id": "p3", "number": "03", "title": "Acabamento na entrega", "description": "Instalação limpa, identificada e pronta para uso com confiança." }
+    ],
+    "projects": [
+      { "id": "proj1", "image": "/project-living.svg", "imageAlt": "Projeto de iluminação em sala", "category": "ILUMINAÇÃO", "title": "Iluminação residencial planejada", "description": "Distribuição de pontos e luminárias para conforto e valorização do ambiente." },
+      { "id": "proj2", "image": "/project-panel.svg", "imageAlt": "Quadro elétrico organizado", "category": "SEGURANÇA", "title": "Modernização de quadro elétrico", "description": "Organização, identificação e proteção de circuitos." },
+      { "id": "proj3", "image": "/project-store.svg", "imageAlt": "Instalação elétrica comercial", "category": "COMERCIAL", "title": "Adequação elétrica em comércio", "description": "Circuitos e iluminação preparados para a operação do negócio." }
+    ],
+    "testimonials": [
+      { "id": "t1", "quote": "Atendimento muito organizado. Explicou tudo antes de começar e entregou o quadro bem identificado.", "name": "Carlos M.", "role": "Cliente residencial", "rating": "5.0" },
+      { "id": "t2", "quote": "Precisávamos adequar a parte elétrica da loja e o serviço ficou limpo, rápido e sem improviso.", "name": "Patrícia R.", "role": "Comércio local", "rating": "5.0" },
+      { "id": "t3", "quote": "Gostei principalmente do cuidado com o acabamento e da clareza no orçamento.", "name": "Renato A.", "role": "Cliente residencial", "rating": "5.0" }
+    ],
+    "process": [
+      { "id": "1", "step": "01", "title": "Você explica a necessidade", "description": "Recebemos as informações iniciais pelo WhatsApp ou formulário." },
+      { "id": "2", "step": "02", "title": "Avaliamos a solução", "description": "Definimos escopo, materiais, visita quando necessária e orçamento." },
+      { "id": "3", "step": "03", "title": "Executamos com organização", "description": "Serviço técnico, cuidado com o ambiente e comunicação durante a execução." },
+      { "id": "4", "step": "04", "title": "Conferimos e entregamos", "description": "Testes finais, orientações e acabamento antes de concluir." }
+    ],
+    "values": [
+      { "id": "v1", "title": "Segurança", "description": "Decisões técnicas pensando primeiro na proteção de pessoas e patrimônio." },
+      { "id": "v2", "title": "Transparência", "description": "Explicação clara do problema, da solução e do que está incluso no orçamento." },
+      { "id": "v3", "title": "Capricho", "description": "Organização e acabamento fazem parte do serviço, não são detalhe opcional." }
+    ],
+    "serviceAreas": [
+      { "id": "a1", "text": "São Paulo" }, { "id": "a2", "text": "ABC Paulista" }, { "id": "a3", "text": "Osasco e região" }, { "id": "a4", "text": "Outras cidades sob consulta" }
+    ],
+    "faq": [
+      { "id": "f1", "question": "Vocês atendem residências e empresas?", "answer": "Sim. O atendimento pode ser residencial, comercial ou empresarial, conforme o tipo e o porte do serviço." },
+      { "id": "f2", "question": "É possível pedir orçamento pelo WhatsApp?", "answer": "Sim. Fotos e uma descrição inicial ajudam a entender a necessidade. Dependendo do serviço, pode ser indicada uma visita técnica." },
+      { "id": "f3", "question": "Vocês trabalham com adequação de quadros antigos?", "answer": "Sim. Podemos avaliar organização, dimensionamento, disjuntores, DR, DPS e outras melhorias necessárias." },
+      { "id": "f4", "question": "O serviço tem garantia?", "answer": "A garantia pode variar conforme o tipo de serviço e os materiais utilizados. As condições são informadas no orçamento." }
+    ]
+  },
+  "blog": { "enabled": true }
+}
