@@ -3,7 +3,7 @@
   "contractVersion": 2,
   "templateId": "eletronobre",
   "name": "EletroNobre",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "visibility": "public_catalog",
   "description": "Template sofisticado para eletricistas e empresas de elétrica residencial e comercial, com foco em segurança, acabamento e confiança.",
   "thumbnailUrl": "",
@@ -14,7 +14,7 @@
   "features": { "blog": true, "services": true, "contactForm": true, "whatsapp": true, "serviceAreas": true, "cityPages": false },
   "capabilities": { "blog": true, "collections": ["stats", "services", "principles", "projects", "testimonials", "process", "values", "serviceAreas", "faq"] },
   "supports": { "blog": true, "services": true, "seoPerPage": true, "whatsapp": true, "contactForm": true, "editableImages": true, "previewBySlug": true, "visualEditor": true, "themeColors": true, "collections": true, "analytics": true, "favicon": true, "optionalPages": false },
-  "blog": { "enabled": true, "enabledPath": "blog.enabled", "indexRoute": "/blog", "postRoute": "/blog/:slug", "source": "coruja" },
+  "blog": { "enabled": true, "indexRoute": "/blog", "postRoute": "/blog/:slug", "source": "coruja" },
   "routes": [ { "type": "page", "path": "/", "pageId": "home" }, { "type": "page", "path": "/servicos", "pageId": "services" }, { "type": "page", "path": "/sobre", "pageId": "about" }, { "type": "page", "path": "/contato", "pageId": "contact" }, { "type": "blogList", "path": "/blog", "pageId": "blog", "requiresBlog": true }, { "type": "blogPost", "path": "/blog/:slug", "pageId": "blog", "requiresBlog": true } ],
   "seo": { "renderingMode": "csr", "indexableRoutes": [
     { "path": "/", "titlePath": "pages.home.seo.title", "descriptionPath": "pages.home.seo.description", "h1Path": "pages.home.hero.title", "canonicalPath": "global.seo.canonicalBase", "schemaTypes": ["Electrician", "WebSite"] },
