@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "templateId": "eletronobre",
   "name": "EletroNobre",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Template sofisticado para eletricistas e empresas de elétrica residencial e comercial.",
   "category": "servicos",
   "industry": ["eletricista", "servicos-eletricos", "eletrica-residencial", "eletrica-comercial"],
