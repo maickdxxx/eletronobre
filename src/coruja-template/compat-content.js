@@ -112,6 +112,7 @@ function applyWhatsAppIdentity() {
   document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href^="whatsapp:"]').forEach((link) => {
     const currentTitle = link.getAttribute('title') || '';
     if (!link.dataset.corujaBaseTitle) link.dataset.corujaBaseTitle = currentTitle;
+    if (!link.hasAttribute('data-coruja-event-label')) link.setAttribute('data-coruja-event-label', 'whatsapp_click');
     link.setAttribute('title', `${link.dataset.corujaBaseTitle ? `${link.dataset.corujaBaseTitle} — ` : ''}WhatsApp ${display}`);
   });
 }
