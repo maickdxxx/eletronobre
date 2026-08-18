@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { CorujaContentGate, CorujaProvider, buildWhatsAppHref, useCollection, useContent, useTelHref, useWhatsAppUrl } from "./coruja-template/content.jsx";
+import { CorujaContentGate, CorujaProvider, CorujaTrackedLink, buildWhatsAppHref, useCollection, useContent, useTelHref, useWhatsAppUrl } from "./coruja-template/content.jsx";
 import { fetchCorujaBlogPost, fetchCorujaBlogPosts } from "./coruja-template/api.js";
 import { getCorujaRoute, resolveCorujaAssetUrl, withCorujaPreviewBasePath } from "./coruja-template/preview.js";
 
@@ -80,7 +80,7 @@ function Header() {
   const ctaLabel = useContent("global.cta.headerLabel", "");
   const wa = useWhatsAppUrl();
   const links = [["/servicos", serviceLabel], ["/sobre", aboutLabel], ["/#projetos", projectsLabel], ["/blog", blogLabel], ["/contato", contactLabel]];
-  return <header className="header"><div className="container header-inner"><Brand/><nav className="desktop-nav">{links.map(([href,label]) => <a key={href} href={siteHref(href)}>{label}</a>)}</nav><a className="btn btn-dark header-cta" href={wa} target="_blank" rel="noopener">{ctaLabel}</a><details className="mobile-menu"><summary aria-label="Abrir menu"><span/><span/><span/></summary><div className="mobile-panel">{links.map(([href,label]) => <a key={href} href={siteHref(href)}>{label}</a>)}<a className="btn btn-dark" href={wa} target="_blank" rel="noopener">{ctaLabel}</a></div></details></div></header>;
+  return <header className="header"><div className="container header-inner"><Brand/><nav className="desktop-nav">{links.map(([href,label]) => <a key={href} href={siteHref(href)}>{label}</a>)}</nav><CorujaTrackedLink className="btn btn-dark header-cta" eventLabel="header_whatsapp" href={wa} target="_blank" rel="noopener">{ctaLabel}</CorujaTrackedLink><details className="mobile-menu"><summary aria-label="Abrir menu"><span/><span/><span/></summary><div className="mobile-panel">{links.map(([href,label]) => <a key={href} href={siteHref(href)}>{label}</a>)}<CorujaTrackedLink className="btn btn-dark" eventLabel="header_whatsapp" href={wa} target="_blank" rel="noopener">{ctaLabel}</CorujaTrackedLink></div></details></div></header>;
 }
 function Footer() {
   const tagline = useContent("global.footer.tagline", "");

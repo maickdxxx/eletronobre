@@ -6,7 +6,7 @@ import integration from "./integration.json";
 import manifest from "./manifest.json";
 import theme from "./theme.json";
 export { templateManifest, editableSchema, defaults, routes, integration, manifest, theme };
-export { CorujaContentGate, CorujaProvider, useCoruja, useCorujaStatus, useContent, useCollection, useWhatsAppUrl, useTelHref, buildWhatsAppHref, getByPath } from "./content.jsx";
+export { CorujaContentGate, CorujaProvider, CorujaTrackedLink, useCoruja, useCorujaStatus, useContent, useCollection, useWhatsAppUrl, useTelHref, buildWhatsAppHref, getByPath } from "./content.jsx";
 export { fetchCorujaBlogPost, fetchCorujaBlogPosts, fetchCorujaContent, getCorujaApiBase, getCorujaProjectId, isCorujaPublicRuntime } from "./api.js";
 export { getCorujaPreviewBasePath, getCorujaRoute, resolveCorujaAssetUrl, resolveCorujaPreviewBasePath, withCorujaPreviewBasePath } from "./preview.js";
 export default { manifest, templateManifest, editableSchema, defaults, routes, integration, theme };
