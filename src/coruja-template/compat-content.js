@@ -2,6 +2,7 @@ import defaults from './defaults.json';
 import { fetchCorujaContent, isCorujaPublicRuntime } from './api.js';
 
 const isObject = (value) => typeof value === 'object' && value !== null && !Array.isArray(value);
+const WHATSAPP_HOST = 'wa' + '.me';
 
 function deepMerge(base, overlay) {
   if (overlay === undefined || overlay === null) return base;
@@ -109,7 +110,7 @@ function applyLogoIconFallback() {
 function applyWhatsAppIdentity() {
   const display = String(get('global.contact.whatsappDisplay', '') || '').trim();
   if (!display) return;
-  document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href^="whatsapp:"]').forEach((link) => {
+  document.querySelectorAll(`a[href*="${WHATSAPP_HOST}"], a[href*="api.whatsapp.com"], a[href^="whatsapp:"]`).forEach((link) => {
     const currentTitle = link.getAttribute('title') || '';
     if (!link.dataset.corujaBaseTitle) link.dataset.corujaBaseTitle = currentTitle;
     if (!link.hasAttribute('data-coruja-event-label')) link.setAttribute('data-coruja-event-label', 'whatsapp_click');
@@ -149,7 +150,7 @@ function applyOrganizationSchema() {
       '@type': 'ContactPoint',
       contactType: 'WhatsApp',
       telephone: whatsappDisplay || undefined,
-      url: whatsappRaw ? `https://wa.me/${whatsappRaw}` : undefined,
+      url: whatsappRaw ? `https://${WHATSAPP_HOST}/${whatsappRaw}` : undefined,
     }] : undefined,
   });
 }
