@@ -1,24 +1,13 @@
 import { useEffect, useState } from "react";
 import { CorujaContentGate, CorujaProvider, buildWhatsAppHref, useCollection, useContent, useTelHref, useWhatsAppUrl } from "./coruja-template/content.jsx";
 import { fetchCorujaBlogPost, fetchCorujaBlogPosts } from "./coruja-template/api.js";
+import { getCorujaRoute, resolveCorujaAssetUrl, withCorujaPreviewBasePath } from "./coruja-template/preview.js";
 
-function previewBase() {
-  if (typeof window === "undefined") return "";
-  const raw = String(window.__CORUJA_PREVIEW_BASE_PATH__ || "").trim();
-  if (!raw || raw === "/") return "";
-  return `/${raw.replace(/^\/+|\/+$/g, "")}`;
-}
 function siteHref(path = "/") {
-  const base = previewBase();
-  if (!base) return path;
-  return `${base}${path.startsWith("/") ? path : `/${path}`}`;
+  return withCorujaPreviewBasePath(path);
 }
 function currentRoute() {
-  if (typeof window === "undefined") return "/";
-  let pathname = window.location.pathname || "/";
-  const base = previewBase();
-  if (base && pathname.startsWith(base)) pathname = pathname.slice(base.length) || "/";
-  return pathname !== "/" ? pathname.replace(/\/+$/, "") : "/";
+  return getCorujaRoute();
 }
 function currentSlug() {
   const match = currentRoute().match(/^\/blog\/([^/]+)$/);
@@ -46,7 +35,7 @@ function SeoManager({ post }) {
   const pageDescription = useContent(`pages.${pageId}.seo.description`, globalDescription);
   const pageImage = useContent(`pages.${pageId}.seo.ogImage`, globalImage);
   const canonicalBase = useContent("global.seo.canonicalBase", "");
-  const favicon = useContent("global.brand.faviconUrl", "/favicon.svg");
+  const favicon = resolveCorujaAssetUrl(useContent("global.brand.faviconUrl", ""), "/favicon.svg");
   const brand = useContent("global.brand.name", "");
   const phone = useContent("global.contact.phoneRaw", "");
   const address = useContent("global.contact.address", "");
@@ -59,7 +48,8 @@ function SeoManager({ post }) {
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
     setMeta("og:type", post ? "article" : "website", "property");
-    if (pageImage) setMeta("og:image", pageImage, "property");
+    const resolvedPageImage = resolveCorujaAssetUrl(pageImage);
+    if (resolvedPageImage) setMeta("og:image", resolvedPageImage, "property");
     setLink("icon", favicon);
     const suffix = post ? `/blog/${post.slug}` : route;
     if (canonicalBase) setLink("canonical", `${canonicalBase.replace(/\/+$/, "")}${suffix === "/" ? "" : suffix}`);
@@ -78,7 +68,8 @@ function Mark() { return <span className="mark" aria-hidden="true">⌁</span>; }
 function Brand() {
   const name = useContent("global.brand.name", "");
   const logo = useContent("global.brand.logoUrl", "");
-  return <a className="brand" href={siteHref("/")}>{logo ? <img src={logo} alt={name} /> : <><Mark/><span>{name}</span></>}</a>;
+  const logoSrc = resolveCorujaAssetUrl(logo);
+  return <a className="brand" href={siteHref("/")}>{logoSrc ? <img src={logoSrc} alt={name} /> : <><Mark/><span>{name}</span></>}</a>;
 }
 function Header() {
   const serviceLabel = useContent("global.nav.servicesLabel", "");
@@ -124,7 +115,7 @@ function ServiceCard({ item }) {
   return <article className="service-card"><div className="service-head"><span className="service-icon">{item.icon}</span><span>{item.highlight}</span></div><h3>{item.title}</h3><p>{item.description}</p><a href={href} target="_blank" rel="noopener">{item.ctaLabel}<span>↗</span></a></article>;
 }
 function Principles() { const items = useCollection("collections.principles"); return <div className="principle-grid">{items.map(item => <article key={item.id}><span>{item.number}</span><h3>{item.title}</h3><p>{item.description}</p></article>)}</div>; }
-function Projects() { const items = useCollection("collections.projects"); return <div className="project-grid">{items.map((item,index) => <article className={`project-card ${index === 0 ? "project-main" : ""}`} key={item.id}><img src={item.image} alt={item.imageAlt || item.title}/><div><span>{item.category}</span><h3>{item.title}</h3><p>{item.description}</p></div></article>)}</div>; }
+function Projects() { const items = useCollection("collections.projects"); const fallbacks = ["/project-living.svg", "/project-panel.svg", "/project-store.svg"]; return <div className="project-grid">{items.map((item,index) => <article className={`project-card ${index === 0 ? "project-main" : ""}`} key={item.id}><img src={resolveCorujaAssetUrl(item.image, fallbacks[index % fallbacks.length])} alt={item.imageAlt || item.title}/><div><span>{item.category}</span><h3>{item.title}</h3><p>{item.description}</p></div></article>)}</div>; }
 function Testimonials() { const items = useCollection("collections.testimonials"); return <div className="testimonial-grid">{items.map(item => <article key={item.id}><div className="quote-mark">“</div><blockquote>{item.quote}</blockquote><div className="testimonial-foot"><div><strong>{item.name}</strong><span>{item.role}</span></div><span className="rating">★ {item.rating}</span></div></article>)}</div>; }
 function Faq() { const items = useCollection("collections.faq"); return <div className="faq-list">{items.map(item => <details key={item.id}><summary>{item.question}<span>+</span></summary><p>{item.answer}</p></details>)}</div>; }
 function PageHero({ page }) {
@@ -139,7 +130,7 @@ function HomePage() {
   const finalMessage = useContent("pages.home.finalCta.whatsappMessage", "");
   const finalWa = useWhatsAppUrl(finalMessage);
   return <Layout>
-    <section className="hero"><div className="container hero-grid"><div className="hero-copy"><Eyebrow>{useContent("pages.home.hero.eyebrow", "")}</Eyebrow><h1>{useContent("pages.home.hero.title", "")} <em>{useContent("pages.home.hero.titleAccent", "")}</em></h1><p>{useContent("pages.home.hero.description", "")}</p><div className="hero-actions"><a className="btn btn-copper" href={wa} target="_blank" rel="noopener">{useContent("pages.home.hero.primaryCtaLabel", "")}</a><a className="text-link" href={siteHref("/servicos")}>{useContent("pages.home.hero.secondaryCtaLabel", "")}<span>↗</span></a></div><div className="hero-note">{useContent("pages.home.hero.note", "")}</div><Stats/></div><div className="hero-visual"><img src={useContent("pages.home.hero.image", "")} alt={useContent("pages.home.hero.imageAlt", "")}/><div className="hero-stamp"><Mark/><span>{useContent("global.brand.name", "")}</span><small>Elétrica & acabamento</small></div></div></div></section>
+    <section className="hero"><div className="container hero-grid"><div className="hero-copy"><Eyebrow>{useContent("pages.home.hero.eyebrow", "")}</Eyebrow><h1>{useContent("pages.home.hero.title", "")} <em>{useContent("pages.home.hero.titleAccent", "")}</em></h1><p>{useContent("pages.home.hero.description", "")}</p><div className="hero-actions"><a className="btn btn-copper" href={wa} target="_blank" rel="noopener">{useContent("pages.home.hero.primaryCtaLabel", "")}</a><a className="text-link" href={siteHref("/servicos")}>{useContent("pages.home.hero.secondaryCtaLabel", "")}<span>↗</span></a></div><div className="hero-note">{useContent("pages.home.hero.note", "")}</div><Stats/></div><div className="hero-visual"><img src={resolveCorujaAssetUrl(useContent("pages.home.hero.image", ""), "/hero-nobre.svg")} alt={useContent("pages.home.hero.imageAlt", "")}/><div className="hero-stamp"><Mark/><span>{useContent("global.brand.name", "")}</span><small>Elétrica & acabamento</small></div></div></div></section>
     <section className="signature-section"><div className="container signature-grid"><div><Eyebrow>{useContent("pages.home.signature.eyebrow", "")}</Eyebrow><h2>{useContent("pages.home.signature.title", "")}</h2></div><div><p>{useContent("pages.home.signature.description", "")}</p></div></div><div className="container"><Principles/></div></section>
     <section className="section"><div className="container"><SectionTitle eyebrow={useContent("pages.home.services.eyebrow", "")} title={useContent("pages.home.services.title", "")} description={useContent("pages.home.services.description", "")}/><div className="services-grid">{services.slice(0,6).map(item => <ServiceCard key={item.id} item={item}/>)}</div><div className="section-action"><a className="btn btn-outline" href={siteHref("/servicos")}>{useContent("pages.home.services.ctaLabel", "")}</a></div></div></section>
     <section className="section projects-section" id="projetos"><div className="container"><SectionTitle eyebrow={useContent("pages.home.projects.eyebrow", "")} title={useContent("pages.home.projects.title", "")} description={useContent("pages.home.projects.description", "")}/><Projects/></div></section>

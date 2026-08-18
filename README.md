@@ -20,7 +20,17 @@ Template reutilizável para eletricistas e empresas de serviços elétricos no c
 
 ```bash
 npm install
+npm test
 npm run build
 ```
 
 Saída: `dist`.
+
+## Compatibilidade validada
+
+- contrato público V2 com schema editável usando paths absolutos;
+- conteúdo remoto via `VITE_CORUJA_PROJECT_ID` e API pública do Coruja Host;
+- preview por slug, por `/preview/:id` e por `/site-preview/:id`;
+- bridge do editor visual com atualização de campos e coleções em tempo real;
+- assets resolvidos no contexto da prévia, sem imagens vazias;
+- card de catálogo configurado para a área **Modelos**.

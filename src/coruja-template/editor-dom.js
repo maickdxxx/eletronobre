@@ -1,3 +1,5 @@
+import { getCorujaRoute } from './preview.js';
+
 const ATTR = 'data-coruja-path';
 const root = () => document.getElementById('root');
 const one = (selector, scope = document) => scope?.querySelector?.(selector) || null;
@@ -28,11 +30,7 @@ function item(el, id, index) {
 }
 
 function route() {
-  let path = window.location.pathname || '/';
-  const raw = String(window.__CORUJA_PREVIEW_BASE_PATH__ || '').trim();
-  const base = raw && raw !== '/' ? `/${raw.replace(/^\/+|\/+$/g, '')}` : '';
-  if (base && path.startsWith(base)) path = path.slice(base.length) || '/';
-  return path !== '/' ? path.replace(/\/+$/, '') : '/';
+  return getCorujaRoute();
 }
 
 function markSectionTitle(section, prefix) {

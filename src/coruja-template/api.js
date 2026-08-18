@@ -1,5 +1,7 @@
 function isObject(value) { return typeof value === "object" && value !== null && !Array.isArray(value); }
-function readEnv(key) { try { return String(import.meta?.env?.[key] || "").trim(); } catch { return ""; } }
+const CORUJA_PROJECT_ID = String(import.meta.env.VITE_CORUJA_PROJECT_ID || "").trim();
+const CORUJA_API_BASE = String(import.meta.env.VITE_CORUJA_API_BASE || "").trim();
+const CORUJA_API_BASE_URL = String(import.meta.env.VITE_CORUJA_API_BASE_URL || "").trim();
 function readRuntimeProjectId() {
   if (typeof window === "undefined") return "";
   const root = isObject(window.__CORUJA__) ? window.__CORUJA__ : {};
@@ -8,13 +10,13 @@ function readRuntimeProjectId() {
   const values = [window.__CORUJA_PROJECT_ID__, root.projectId, root.project_id, payload.projectId, payload.project_id, project.id];
   return String(values.find((value) => typeof value === "string" && value.trim()) || "").trim();
 }
-export function getCorujaProjectId() { return readEnv("VITE_CORUJA_PROJECT_ID") || readRuntimeProjectId(); }
-export function getCorujaApiBase() { return (readEnv("VITE_CORUJA_API_BASE") || "https://corujahost.com.br").replace(/\/+$/, ""); }
+export function getCorujaProjectId() { return CORUJA_PROJECT_ID || readRuntimeProjectId(); }
+export function getCorujaApiBase() { return (CORUJA_API_BASE || CORUJA_API_BASE_URL || "https://corujahost.com.br").replace(/\/+$/, ""); }
 export function isCorujaPublicRuntime() { return Boolean(getCorujaProjectId()); }
 async function fetchJson(url, timeoutMs = 8000) {
   const controller = typeof AbortController !== "undefined" ? new AbortController() : null;
   const timer = controller ? setTimeout(() => controller.abort(), timeoutMs) : null;
-  try { const response = await fetch(url, { headers: { Accept: "application/json" }, signal: controller?.signal }); return response.ok ? await response.json() : null; }
+  try { const response = await fetch(url, { headers: { Accept: "application/json" }, cache: "no-store", signal: controller?.signal }); return response.ok ? await response.json() : null; }
   catch { return null; } finally { if (timer) clearTimeout(timer); }
 }
 function looksLikeContent(value) { return isObject(value) && (isObject(value.global) || isObject(value.pages) || isObject(value.collections) || isObject(value.blog)); }

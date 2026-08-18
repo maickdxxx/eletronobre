@@ -1,11 +1,13 @@
 {
   "name": "eletronobre",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run check:coruja && vite build",
+    "check:coruja": "node scripts/coruja-contract-check.mjs",
+    "test": "npm run check:coruja",
     "preview": "vite preview"
   },
   "dependencies": {
