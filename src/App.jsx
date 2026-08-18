@@ -104,7 +104,7 @@ function FloatingWhatsapp() {
   const text = useContent("global.cta.floatingText", "");
   const label = useContent("global.cta.floatingButtonLabel", "");
   const wa = useWhatsAppUrl();
-  return <CorujaTrackedLink className="floating-wa" data-coruja-url-path="global.contact.whatsappRaw" eventLabel="floating_whatsapp" href={wa} target="_blank" rel="noopener" aria-label={`${label}: ${title}`}><span className="floating-wa-icon" aria-hidden="true"><MessageCircle size={26} fill="currentColor"/></span><span className="floating-wa-copy"><strong data-coruja-path="global.cta.floatingTitle">{title}</strong><small data-coruja-path="global.cta.floatingText">{text}</small></span><span className="floating-wa-label" data-coruja-path="global.cta.floatingButtonLabel">{label}</span></CorujaTrackedLink>;
+  return <CorujaTrackedLink className="floating-wa" data-coruja-path="global.cta.floatingButtonLabel" data-coruja-text-path="global.cta.floatingButtonLabel" data-coruja-url-path="global.contact.whatsappRaw" eventLabel="floating_whatsapp" href={wa} target="_blank" rel="noopener" aria-label={`${label}: ${title}`}><span className="floating-wa-icon" aria-hidden="true"><MessageCircle size={26} fill="currentColor"/></span><span className="floating-wa-copy"><strong>{title}</strong><small>{text}</small></span><span className="floating-wa-label">{label}</span></CorujaTrackedLink>;
 }
 function Layout({ children, post }) { return <><SeoManager post={post}/><CorujaRouteMarkers/><Header/><main>{children}</main><Footer/><FloatingWhatsapp/></>; }
 function Eyebrow({ children }) { return <span className="eyebrow">{children}</span>; }
