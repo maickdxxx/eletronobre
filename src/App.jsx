@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { CorujaContentGate, CorujaProvider, CorujaTrackedLink, buildWhatsAppHref, useCollection, useContent, useTelHref, useWhatsAppUrl } from "./coruja-template/content.jsx";
 import { fetchCorujaBlogPost, fetchCorujaBlogPosts } from "./coruja-template/api.js";
 import { getCorujaRoute, resolveCorujaAssetUrl, withCorujaPreviewBasePath } from "./coruja-template/preview.js";
+import CorujaRouteMarkers from "./coruja-template/route-markers.jsx";
 
 function siteHref(path = "/") {
   return withCorujaPreviewBasePath(path);
@@ -80,7 +81,7 @@ function Header() {
   const ctaLabel = useContent("global.cta.headerLabel", "");
   const wa = useWhatsAppUrl();
   const links = [["/servicos", serviceLabel], ["/sobre", aboutLabel], ["/#projetos", projectsLabel], ["/blog", blogLabel], ["/contato", contactLabel]];
-  return <header className="header"><div className="container header-inner"><Brand/><nav className="desktop-nav">{links.map(([href,label]) => <a key={href} href={siteHref(href)}>{label}</a>)}</nav><CorujaTrackedLink className="btn btn-dark header-cta" eventLabel="header_whatsapp" href={wa} target="_blank" rel="noopener">{ctaLabel}</CorujaTrackedLink><details className="mobile-menu"><summary aria-label="Abrir menu"><span/><span/><span/></summary><div className="mobile-panel">{links.map(([href,label]) => <a key={href} href={siteHref(href)}>{label}</a>)}<CorujaTrackedLink className="btn btn-dark" eventLabel="header_whatsapp" href={wa} target="_blank" rel="noopener">{ctaLabel}</CorujaTrackedLink></div></details></div></header>;
+  return <header className="header"><div className="container header-inner"><Brand/><nav className="desktop-nav">{links.map(([href,label]) => <a key={href} href={siteHref(href)}>{label}</a>)}</nav><CorujaTrackedLink className="btn btn-dark header-cta" data-coruja-path="global.cta.headerLabel" eventLabel="header_whatsapp" href={wa} target="_blank" rel="noopener">{ctaLabel}</CorujaTrackedLink><details className="mobile-menu"><summary aria-label="Abrir menu"><span/><span/><span/></summary><div className="mobile-panel">{links.map(([href,label]) => <a key={href} href={siteHref(href)}>{label}</a>)}<CorujaTrackedLink className="btn btn-dark" data-coruja-path="global.cta.headerLabel" eventLabel="header_whatsapp" href={wa} target="_blank" rel="noopener">{ctaLabel}</CorujaTrackedLink></div></details></div></header>;
 }
 function Footer() {
   const tagline = useContent("global.footer.tagline", "");
@@ -104,7 +105,7 @@ function FloatingWhatsapp() {
   const wa = useWhatsAppUrl();
   return <div className="floating-wa"><div><strong>{title}</strong><span>{text}</span></div><a href={wa} target="_blank" rel="noopener" aria-label={label}>↗</a></div>;
 }
-function Layout({ children, post }) { return <><SeoManager post={post}/><Header/><main>{children}</main><Footer/><FloatingWhatsapp/></>; }
+function Layout({ children, post }) { return <><SeoManager post={post}/><CorujaRouteMarkers/><Header/><main>{children}</main><Footer/><FloatingWhatsapp/></>; }
 function Eyebrow({ children }) { return <span className="eyebrow">{children}</span>; }
 function SectionTitle({ eyebrow, title, description, align = "left" }) { return <div className={`section-title ${align === "center" ? "center" : ""}`}><Eyebrow>{eyebrow}</Eyebrow><h2>{title}</h2>{description && <p>{description}</p>}</div>; }
 function Stats() { const items = useCollection("collections.stats"); return <div className="stats">{items.map(item => <div key={item.id}><strong>{item.value}</strong><span>{item.label}</span></div>)}</div>; }
@@ -171,7 +172,7 @@ function ContactForm() {
     const body = [initialMessage, `Nome: ${form.name}`, `Telefone: ${form.phone}`, `Serviço: ${form.service}`, `Detalhes: ${form.message}`].filter(Boolean).join("\n");
     window.open(buildWhatsAppHref(number, body), "_blank", "noopener,noreferrer");
   }
-  return <form className="contact-form" data-coruja-form="contact_whatsapp" data-coruja-event-label="contact_form_submit" onSubmit={submit}><div className="form-head"><Eyebrow>ORÇAMENTO</Eyebrow><h2>{title}</h2><p>{description}</p></div><label>{nameLabel}<input required value={form.name} onChange={e => setForm({...form,name:e.target.value})} placeholder={namePlaceholder}/></label><label>{phoneLabel}<input required value={form.phone} onChange={e => setForm({...form,phone:e.target.value})} placeholder={phonePlaceholder}/></label><label>{serviceLabel}<input required value={form.service} onChange={e => setForm({...form,service:e.target.value})} placeholder={servicePlaceholder}/></label><label>{messageLabel}<textarea rows="5" value={form.message} onChange={e => setForm({...form,message:e.target.value})} placeholder={messagePlaceholder}/></label><button className="btn btn-dark" type="submit">{submitText}</button></form>;
+  return <form className="contact-form" data-coruja-form="contact_whatsapp" data-coruja-event="form_submit" data-coruja-event-label="contact_form_submit" onSubmit={submit}><div className="form-head"><Eyebrow>ORÇAMENTO</Eyebrow><h2>{title}</h2><p>{description}</p></div><label>{nameLabel}<input required value={form.name} onChange={e => setForm({...form,name:e.target.value})} placeholder={namePlaceholder}/></label><label>{phoneLabel}<input required value={form.phone} onChange={e => setForm({...form,phone:e.target.value})} placeholder={phonePlaceholder}/></label><label>{serviceLabel}<input required value={form.service} onChange={e => setForm({...form,service:e.target.value})} placeholder={servicePlaceholder}/></label><label>{messageLabel}<textarea rows="5" value={form.message} onChange={e => setForm({...form,message:e.target.value})} placeholder={messagePlaceholder}/></label><button className="btn btn-dark" data-coruja-path="pages.contact.form.submitText" type="submit">{submitText}</button></form>;
 }
 function ContactPage() {
   const phone = useContent("global.contact.phone", "");

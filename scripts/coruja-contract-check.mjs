@@ -93,12 +93,15 @@ const apiSource = fs.readFileSync(path.join(root, "src/coruja-template/api.js"),
 const previewSource = fs.readFileSync(path.join(root, "src/coruja-template/preview.js"), "utf8");
 const editorSource = fs.readFileSync(path.join(root, "src/coruja-template/editor-dom.js"), "utf8");
 const appSource = fs.readFileSync(path.join(root, "src/App.jsx"), "utf8");
+const markerSource = fs.readFileSync(path.join(root, "src/coruja-template/route-markers.jsx"), "utf8");
 assert(apiSource.includes("import.meta.env.VITE_CORUJA_PROJECT_ID"), "O ID público do projeto deve ser incorporado ao build");
 assert(apiSource.includes("/api/public/projects/"), "O cliente da API pública de conteúdo está ausente");
 assert(previewSource.includes("preview.corujahost.com.br"), "A prévia por slug não está implementada");
 assert(editorSource.includes("data-coruja-path"), "Os marcadores do editor visual estão ausentes");
 assert(appSource.includes('data-coruja-form="contact_whatsapp"'), "O formulário precisa ser identificado para o editor");
 assert(appSource.includes('data-coruja-event-label="contact_form_submit"'), "O envio do formulário precisa de rótulo analítico");
+assert(appSource.includes('data-coruja-event="form_submit"'), "O formulário precisa declarar o evento de conversão");
+assert(markerSource.includes("collectionFields") && markerSource.includes("data-coruja-path"), "Os markers funcionais de rotas e coleções estão ausentes");
 
 const previewCases = [
   [{ hostname: "preview.corujahost.com.br", pathname: "/eletronobre/sobre" }, "/eletronobre"],
