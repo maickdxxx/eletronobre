@@ -36,7 +36,7 @@ export default function CorujaRouteMarkers() {
       key={field.path}
       data-coruja-editable="true"
       data-coruja-path={field.path}
-      data-coruja-field-type={field.type || "text"}
+      data-coruja-type="text"
       data-coruja-label={field.label || field.path}
       data-coruja-item-id={field.itemId}
     >{markerValue(getByPath(content, field.path))}</span>)}
