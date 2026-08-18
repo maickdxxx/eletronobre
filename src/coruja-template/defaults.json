@@ -47,16 +47,16 @@
     "social": { "instagram": "", "facebook": "", "linkedin": "" },
     "theme": {
       "colors": {
-        "primary": "#B8794B",
-        "secondary": "#171513",
-        "accent": "#D9B28D",
-        "background": "#F7F2EC",
-        "foreground": "#211D1A",
-        "surface": "#FFFDFC",
-        "muted": "#71675F",
-        "border": "#E4D9CF",
-        "soft": "#EFE5DB",
-        "whatsapp": "#25D366"
+        "primary": "#FFC928",
+        "secondary": "#07111F",
+        "accent": "#2684FF",
+        "background": "#F3F6FA",
+        "foreground": "#0D1726",
+        "surface": "#FFFFFF",
+        "muted": "#637287",
+        "border": "#D8E0EA",
+        "soft": "#E9F0F7",
+        "whatsapp": "#20C864"
       }
     }
   },
@@ -157,12 +157,12 @@
       { "id": "s3", "value": "Limpo", "label": "serviço organizado" }
     ],
     "services": [
-      { "id": "instalacoes", "icon": "◈", "title": "Instalações elétricas", "description": "Novos pontos, circuitos, tomadas, iluminação e adequações com dimensionamento correto.", "highlight": "Residencial e comercial", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Quero orçamento para instalação elétrica." },
-      { "id": "quadros", "icon": "▦", "title": "Quadros e disjuntores", "description": "Montagem, organização, identificação e modernização de quadros de distribuição.", "highlight": "Mais segurança", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Quero orçamento para quadro elétrico/disjuntores." },
-      { "id": "iluminacao", "icon": "✦", "title": "Iluminação e acabamento", "description": "Instalação de luminárias, spots, pendentes, fitas LED e soluções para valorizar os ambientes.", "highlight": "Acabamento premium", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Quero orçamento para iluminação." },
-      { "id": "manutencao", "icon": "⌁", "title": "Manutenção e diagnóstico", "description": "Correção de falhas, aquecimento, quedas de energia, curtos e problemas recorrentes.", "highlight": "Diagnóstico técnico", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Preciso de manutenção elétrica." },
-      { "id": "chuveiros", "icon": "◇", "title": "Chuveiros e equipamentos", "description": "Circuitos dedicados e instalações seguras para chuveiros, fornos, cooktops e equipamentos de maior potência.", "highlight": "Circuito correto", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Quero instalar um equipamento elétrico." },
-      { "id": "protecao", "icon": "⬡", "title": "Proteção elétrica", "description": "DR, DPS, aterramento e melhorias para reduzir riscos de choque, surtos e danos aos equipamentos.", "highlight": "Proteção do imóvel", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Quero melhorar a proteção elétrica do imóvel." }
+      { "id": "instalacoes", "icon": "cable", "title": "Instalações elétricas", "description": "Novos pontos, circuitos, tomadas, iluminação e adequações com dimensionamento correto.", "highlight": "Residencial e comercial", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Quero orçamento para instalação elétrica." },
+      { "id": "quadros", "icon": "board", "title": "Quadros e disjuntores", "description": "Montagem, organização, identificação e modernização de quadros de distribuição.", "highlight": "Mais segurança", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Quero orçamento para quadro elétrico/disjuntores." },
+      { "id": "iluminacao", "icon": "lighting", "title": "Iluminação e acabamento", "description": "Instalação de luminárias, spots, pendentes, fitas LED e soluções para valorizar os ambientes.", "highlight": "Acabamento premium", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Quero orçamento para iluminação." },
+      { "id": "manutencao", "icon": "maintenance", "title": "Manutenção e diagnóstico", "description": "Correção de falhas, aquecimento, quedas de energia, curtos e problemas recorrentes.", "highlight": "Diagnóstico técnico", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Preciso de manutenção elétrica." },
+      { "id": "chuveiros", "icon": "equipment", "title": "Chuveiros e equipamentos", "description": "Circuitos dedicados e instalações seguras para chuveiros, fornos, cooktops e equipamentos de maior potência.", "highlight": "Circuito correto", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Quero instalar um equipamento elétrico." },
+      { "id": "protecao", "icon": "safety", "title": "Proteção elétrica", "description": "DR, DPS, aterramento e melhorias para reduzir riscos de choque, surtos e danos aos equipamentos.", "highlight": "Proteção do imóvel", "ctaLabel": "Solicitar orçamento", "whatsappMessage": "Olá! Quero melhorar a proteção elétrica do imóvel." }
     ],
     "principles": [
       { "id": "p1", "number": "01", "title": "Diagnóstico antes da execução", "description": "Entender a causa e o cenário evita soluções improvisadas." },

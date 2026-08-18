@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ArrowUpRight, CircuitBoard, Lightbulb, MessageCircle, Plug, ShieldCheck, Wrench, Zap } from "lucide-react";
 import { CorujaContentGate, CorujaProvider, CorujaTrackedLink, buildWhatsAppHref, useCollection, useContent, useTelHref, useWhatsAppUrl } from "./coruja-template/content.jsx";
 import { fetchCorujaBlogPost, fetchCorujaBlogPosts } from "./coruja-template/api.js";
 import { getCorujaRoute, resolveCorujaAssetUrl, withCorujaPreviewBasePath } from "./coruja-template/preview.js";
@@ -65,7 +66,7 @@ function SeoManager({ post }) {
   }, [post, pageTitle, pageDescription, pageImage, globalTitle, globalDescription, canonicalBase, favicon, brand, phone, address, serviceArea, route]);
   return null;
 }
-function Mark() { return <span className="mark" aria-hidden="true">⌁</span>; }
+function Mark() { return <span className="mark" aria-hidden="true"><Zap size={20} strokeWidth={2.8}/></span>; }
 function Brand() {
   const name = useContent("global.brand.name", "");
   const logo = useContent("global.brand.logoUrl", "");
@@ -81,7 +82,7 @@ function Header() {
   const ctaLabel = useContent("global.cta.headerLabel", "");
   const wa = useWhatsAppUrl();
   const links = [["/servicos", serviceLabel], ["/sobre", aboutLabel], ["/#projetos", projectsLabel], ["/blog", blogLabel], ["/contato", contactLabel]];
-  return <header className="header"><div className="container header-inner"><Brand/><nav className="desktop-nav">{links.map(([href,label]) => <a key={href} href={siteHref(href)}>{label}</a>)}</nav><CorujaTrackedLink className="btn btn-dark header-cta" data-coruja-path="global.cta.headerLabel" data-coruja-text-path="global.cta.headerLabel" data-coruja-url-path="global.contact.whatsappRaw" eventLabel="header_whatsapp" href={wa} target="_blank" rel="noopener">{ctaLabel}</CorujaTrackedLink><details className="mobile-menu"><summary aria-label="Abrir menu"><span/><span/><span/></summary><div className="mobile-panel">{links.map(([href,label]) => <a key={href} href={siteHref(href)}>{label}</a>)}<CorujaTrackedLink className="btn btn-dark" data-coruja-path="global.cta.headerLabel" data-coruja-text-path="global.cta.headerLabel" data-coruja-url-path="global.contact.whatsappRaw" eventLabel="header_whatsapp" href={wa} target="_blank" rel="noopener">{ctaLabel}</CorujaTrackedLink></div></details></div></header>;
+  return <header className="header"><div className="container header-inner"><Brand/><nav className="desktop-nav">{links.map(([href,label]) => <a key={href} href={siteHref(href)}>{label}</a>)}</nav><CorujaTrackedLink className="btn btn-primary header-cta" data-coruja-path="global.cta.headerLabel" data-coruja-text-path="global.cta.headerLabel" data-coruja-url-path="global.contact.whatsappRaw" eventLabel="header_whatsapp" href={wa} target="_blank" rel="noopener"><MessageCircle size={18}/>{ctaLabel}</CorujaTrackedLink><details className="mobile-menu"><summary aria-label="Abrir menu"><span/><span/><span/></summary><div className="mobile-panel">{links.map(([href,label]) => <a key={href} href={siteHref(href)}>{label}</a>)}<CorujaTrackedLink className="btn btn-primary" data-coruja-path="global.cta.headerLabel" data-coruja-text-path="global.cta.headerLabel" data-coruja-url-path="global.contact.whatsappRaw" eventLabel="header_whatsapp" href={wa} target="_blank" rel="noopener"><MessageCircle size={18}/>{ctaLabel}</CorujaTrackedLink></div></details></div></header>;
 }
 function Footer() {
   const tagline = useContent("global.footer.tagline", "");
@@ -103,17 +104,35 @@ function FloatingWhatsapp() {
   const text = useContent("global.cta.floatingText", "");
   const label = useContent("global.cta.floatingButtonLabel", "");
   const wa = useWhatsAppUrl();
-  return <div className="floating-wa"><div><strong>{title}</strong><span>{text}</span></div><a href={wa} target="_blank" rel="noopener" aria-label={label}>↗</a></div>;
+  return <CorujaTrackedLink className="floating-wa" data-coruja-url-path="global.contact.whatsappRaw" eventLabel="floating_whatsapp" href={wa} target="_blank" rel="noopener" aria-label={`${label}: ${title}`}><span className="floating-wa-icon" aria-hidden="true"><MessageCircle size={26} fill="currentColor"/></span><span className="floating-wa-copy"><strong data-coruja-path="global.cta.floatingTitle">{title}</strong><small data-coruja-path="global.cta.floatingText">{text}</small></span><span className="floating-wa-label" data-coruja-path="global.cta.floatingButtonLabel">{label}</span></CorujaTrackedLink>;
 }
 function Layout({ children, post }) { return <><SeoManager post={post}/><CorujaRouteMarkers/><Header/><main>{children}</main><Footer/><FloatingWhatsapp/></>; }
 function Eyebrow({ children }) { return <span className="eyebrow">{children}</span>; }
 function SectionTitle({ eyebrow, title, description, align = "left" }) { return <div className={`section-title ${align === "center" ? "center" : ""}`}><Eyebrow>{eyebrow}</Eyebrow><h2>{title}</h2>{description && <p>{description}</p>}</div>; }
 function Stats() { const items = useCollection("collections.stats"); return <div className="stats">{items.map(item => <div key={item.id}><strong>{item.value}</strong><span>{item.label}</span></div>)}</div>; }
+const serviceIcons = {
+  cable: Plug,
+  board: CircuitBoard,
+  lighting: Lightbulb,
+  maintenance: Wrench,
+  equipment: Zap,
+  safety: ShieldCheck,
+  instalacoes: Plug,
+  quadros: CircuitBoard,
+  iluminacao: Lightbulb,
+  manutencao: Wrench,
+  chuveiros: Zap,
+  protecao: ShieldCheck,
+};
+function ServiceGlyph({ name, fallback }) {
+  const Icon = serviceIcons[name] || serviceIcons[fallback] || Zap;
+  return <Icon size={28} strokeWidth={2.2}/>;
+}
 function ServiceCard({ item }) {
   const number = useContent("global.contact.whatsappRaw", "");
   const fallback = useContent("global.contact.whatsappMessage", "");
   const href = buildWhatsAppHref(number, item.whatsappMessage || fallback);
-  return <article className="service-card"><div className="service-head"><span className="service-icon">{item.icon}</span><span>{item.highlight}</span></div><h3>{item.title}</h3><p>{item.description}</p><a href={href} target="_blank" rel="noopener">{item.ctaLabel}<span>↗</span></a></article>;
+  return <article className="service-card"><div className="service-head"><span className="service-icon" data-icon={item.icon} aria-hidden="true"><ServiceGlyph name={item.icon} fallback={item.id}/></span><span>{item.highlight}</span></div><h3>{item.title}</h3><p>{item.description}</p><a href={href} target="_blank" rel="noopener">{item.ctaLabel}<ArrowUpRight size={18}/></a></article>;
 }
 function Principles() { const items = useCollection("collections.principles"); return <div className="principle-grid">{items.map(item => <article key={item.id}><span>{item.number}</span><h3>{item.title}</h3><p>{item.description}</p></article>)}</div>; }
 function Projects() { const items = useCollection("collections.projects"); const fallbacks = ["/project-living.svg", "/project-panel.svg", "/project-store.svg"]; return <div className="project-grid">{items.map((item,index) => <article className={`project-card ${index === 0 ? "project-main" : ""}`} key={item.id}><img src={resolveCorujaAssetUrl(item.image, fallbacks[index % fallbacks.length])} alt={item.imageAlt || item.title}/><div><span>{item.category}</span><h3>{item.title}</h3><p>{item.description}</p></div></article>)}</div>; }

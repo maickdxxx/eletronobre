@@ -3,7 +3,7 @@
   "contractVersion": 2,
   "templateId": "eletronobre",
   "name": "EletroNobre",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "visibility": "public_catalog",
   "description": "Template sofisticado para eletricistas e empresas de elétrica residencial e comercial, com foco em segurança, acabamento e confiança.",
   "thumbnailUrl": "/hero-nobre.svg",
@@ -24,5 +24,5 @@
     { "path": "/contato", "titlePath": "pages.contact.seo.title", "descriptionPath": "pages.contact.seo.description", "h1Path": "pages.contact.hero.title", "canonicalPath": "global.seo.canonicalBase", "schemaTypes": ["Electrician", "ContactPage"] },
     { "path": "/blog", "titlePath": "pages.blog.seo.title", "descriptionPath": "pages.blog.seo.description", "h1Path": "pages.blog.title", "canonicalPath": "global.seo.canonicalBase", "schemaTypes": ["Blog", "WebPage"] }
   ]},
-  "theme": { "tokens": { "color": { "primary": "#B8794B", "secondary": "#171513", "accent": "#D9B28D", "bg": "#F7F2EC", "surface": "#FFFDFC", "fg": "#211D1A", "muted": "#71675F", "border": "#E4D9CF", "soft": "#EFE5DB", "whatsapp": "#25D366" }, "radius": { "base": "18px" }, "container": { "maxWidth": "1240px" }, "font": { "family": "Georgia, 'Times New Roman', serif" } } }
+  "theme": { "tokens": { "color": { "primary": "#FFC928", "secondary": "#07111F", "accent": "#2684FF", "bg": "#F3F6FA", "surface": "#FFFFFF", "fg": "#0D1726", "muted": "#637287", "border": "#D8E0EA", "soft": "#E9F0F7", "whatsapp": "#20C864" }, "radius": { "base": "13px" }, "container": { "maxWidth": "1240px" }, "font": { "family": "Inter, 'Segoe UI', system-ui, sans-serif" } } }
 }
